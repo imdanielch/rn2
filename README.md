@@ -1,6 +1,6 @@
 # react clean architecture in react-native (learning purposes)
 
-Based on Daslaf's react-clean-architecture
+Based on [Osman Cea's react-clean-architecture](https://github.com/daslaf/react-clean-architecture)
 
 Modified to work in react-native
 
