@@ -1,25 +1,32 @@
 import type { Counter } from '../domain/counterEntity';
 import { getCounter, updateCounter } from './counterService';
-import * as actionTypes from './counterActionTypes';
+//import * as actionTypes from './counterActionTypes';
+import {
+  setCounterActionC,
+  getCounterActionC,
+  getCounterSuccessActionC,
+  updateCounterActionC,
+  updateCounterSuccessActionC,
+} from './counterReducer';
 
 const setCounterAction = (counter: Counter) => (dispatch: any) =>
-  dispatch({ type: actionTypes.SET_COUNTER, counter });
+  dispatch(setCounterActionC(counter));
 
 const getCounterAction = () => (dispatch: any) => {
-  dispatch({ type: actionTypes.GET_COUNTER });
+  dispatch(getCounterActionC());
 
   return getCounter().then((counter) => {
-    dispatch({ type: actionTypes.GET_COUNTER_SUCCESS, counter });
+    dispatch(getCounterSuccessActionC(counter));
 
     return counter;
   });
 };
 
 const updateCounterAction = (counter: Counter) => (dispatch: any) => {
-  dispatch({ type: actionTypes.UPDATE_COUNTER });
+  dispatch(updateCounterActionC());
 
   return updateCounter(counter).then((count) => {
-    dispatch({ type: actionTypes.UPDATE_COUNTER_SUCCESS });
+    dispatch(updateCounterSuccessActionC());
 
     return count;
   });

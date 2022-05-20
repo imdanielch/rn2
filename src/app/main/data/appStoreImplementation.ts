@@ -1,13 +1,14 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import thunk from 'redux-thunk';
+import { configureStore } from '@reduxjs/toolkit';
 
-import { counterReducer } from '../../counter/data/counterReducer';
+import counterReducer from '../../counter/data/counterReducer';
 
-const rootReducer = combineReducers({
+const rootReducer = {
   counter: counterReducer,
-});
+};
 
-const appStoreImplementation = createStore(rootReducer, applyMiddleware(thunk));
+const appStoreImplementation = configureStore({
+  reducer: rootReducer,
+});
 
 type AppRootState = ReturnType<typeof appStoreImplementation.getState>;
 

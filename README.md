@@ -1,4 +1,4 @@
-# react clean architecture in react-native (learning purposes)
+## react clean architecture in react-native (learning purposes)
 
 Based on [Osman Cea's react-clean-architecture](https://github.com/daslaf/react-clean-architecture)
 

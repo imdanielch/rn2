@@ -22,7 +22,7 @@ const useCounterStoreImplementation = (): CounterStore => {
   const dispatch = useDispatch();
 
   const setCounter = React.useCallback(
-    (counter: Counter) => setCounterAction(counter)(dispatch),
+    (count: Counter) => setCounterAction(count)(dispatch),
     [dispatch],
   );
 
@@ -32,7 +32,7 @@ const useCounterStoreImplementation = (): CounterStore => {
   );
 
   const updateCounter = React.useCallback(
-    (counter: Counter) => updateCounterAction(counter)(dispatch),
+    (count: Counter) => updateCounterAction(count)(dispatch),
     [dispatch],
   );
 
