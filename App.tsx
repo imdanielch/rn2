@@ -9,14 +9,14 @@
  */
 
 import React from 'react';
-import {View} from 'react-native';
-import AppView from './src/app/main/view/AppView';
+import AppView from './src/app/main/presentation/view/AppView';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const App = () => {
   return (
-    <View>
+    <SafeAreaProvider>
       <AppView />
-    </View>
+    </SafeAreaProvider>
   );
 };
 

@@ -1,5 +1,5 @@
-import type { Counter } from '../domain/counterEntity';
-import { create } from '../domain/counterModel';
+import type { Counter } from '../../../domain/model/counterEntity';
+import { create } from '../../../domain/model/counterModel';
 
 let count = 0;
 
@@ -7,7 +7,7 @@ function getCounter(): Promise<Counter> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(create(count));
-    }, 1000);
+    }, 2000);
   });
 }
 
@@ -16,7 +16,7 @@ function updateCounter(counter: Counter): Promise<Counter> {
     setTimeout(() => {
       count = counter.value;
       resolve(create(count));
-    }, 1000);
+    }, 2000);
   });
 }
 

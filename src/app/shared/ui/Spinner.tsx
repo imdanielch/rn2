@@ -1,7 +1,7 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { ActivityIndicator } from 'react-native';
 
 const Spinner = () => {
-  return <Text>Loading...</Text>;
+  return <ActivityIndicator size="large" />;
 };
 export default Spinner;

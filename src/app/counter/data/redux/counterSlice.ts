@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { CounterStore } from '../domain/counterStore';
-import type { Counter } from '../domain/counterEntity';
-//import * as actionTypes from './counterActionTypes';
+import type { CounterStore } from '../../domain/model/counterStore';
+import type { Counter } from '../../domain/model/counterEntity';
 
 type CounterStoreState = Omit<
   CounterStore,
@@ -12,37 +11,38 @@ const initialState: CounterStoreState = {
   counter: undefined,
   isLoading: false,
   isUpdating: false,
+  isError: false,
 };
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    setCounterActionC: (state, action: PayloadAction<Counter>) => {
+    setCounterAction: (state, action: PayloadAction<Counter>) => {
       state.counter = action.payload;
     },
-    getCounterActionC: (state) => {
+    getCounterAction: (state) => {
       state.isLoading = true;
     },
-    getCounterSuccessActionC: (state, action: PayloadAction<Counter>) => {
+    getCounterSuccessAction: (state, action: PayloadAction<Counter>) => {
       state.isLoading = false;
       state.counter = action.payload;
     },
-    updateCounterActionC: (state) => {
+    updateCounterAction: (state) => {
       state.isUpdating = true;
     },
-    updateCounterSuccessActionC: (state) => {
+    updateCounterSuccessAction: (state) => {
       state.isUpdating = false;
     },
   },
 });
 
 export const {
-  setCounterActionC,
-  getCounterActionC,
-  getCounterSuccessActionC,
-  updateCounterActionC,
-  updateCounterSuccessActionC,
+  setCounterAction,
+  getCounterAction,
+  getCounterSuccessAction,
+  updateCounterAction,
+  updateCounterSuccessAction,
 } = counterSlice.actions;
 
 export type { CounterStoreState };

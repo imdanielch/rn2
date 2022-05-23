@@ -1,7 +1,7 @@
 import debounce from 'lodash.debounce';
 
-import type { Counter } from '../domain/counterEntity';
-import type { CounterStore } from '../domain/counterStore';
+import type { Counter } from '../model/counterEntity';
+import type { CounterStore } from '../model/counterStore';
 
 type UpdateCounterStore = Pick<
   CounterStore,
@@ -18,7 +18,9 @@ const updateCounterUseCase = (
     ? updateBy(store.counter)
     : store.counter;
 
-  if (!updatedCounter || store.counter?.value === updatedCounter?.value) return;
+  if (!updatedCounter || store.counter?.value === updatedCounter?.value) {
+    return;
+  }
 
   store.setCounter(updatedCounter);
 
