@@ -6,6 +6,7 @@ interface CounterStore {
   counter: Counter | undefined;
   isLoading: boolean;
   isUpdating: boolean;
+  isError: boolean;
 
   // Actions
   loadInitialCounter(): Promise<Counter>;

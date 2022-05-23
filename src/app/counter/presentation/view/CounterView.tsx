@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { View, Button, Text, StyleSheet } from 'react-native';
-import Spinner from '../../shared/ui/Spinner';
+import Spinner from '../../../shared/ui/Spinner';
 
-import { useCounterViewModel } from '../controller/counterViewModel';
-import { useCounterStoreImplementation } from '../data/counterStoreImplementation';
+import { useCounterViewModel } from '../viewModel/counterViewModel';
+import { useCounterStoreImplementation } from '../../data/redux/counterStoreImplementation';
 
 const styles = StyleSheet.create({
   button: {
@@ -20,12 +20,13 @@ const CounterView = () => {
     count,
     canDecrement,
     isLoading,
+    isError,
     getCounter,
     incrementCounter,
     decrementCounter,
   } = useCounterViewModel(store);
 
-  React.useEffect(() => {
+  useEffect(() => {
     getCounter();
   }, [getCounter]);
 
@@ -33,6 +34,8 @@ const CounterView = () => {
     <View>
       {isLoading ? (
         <Spinner />
+      ) : isError ? (
+        <Text>Failed to load</Text>
       ) : (
         <>
           <Button
