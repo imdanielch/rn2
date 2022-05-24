@@ -9,23 +9,16 @@ import {
   updateCounterSuccess,
 } from './counterSlice';
 
-// higher order functions
-// Equivalent to:
-// const setCounterAction = function(counter) {
-//  return (function (dispatch) {
-//    return dispatch(setCounterAction(counter));
-//  });
-// };
 const setCounterAction = (counter: Counter) => (dispatch: any) =>
   dispatch(setCounter(counter));
-
+// example with async/await
 const getCounterAction = () => async (dispatch: any) => {
   dispatch(getCounter());
   const newCounter = await getCounterAPI();
   dispatch(getCounterSuccess(newCounter));
   return newCounter;
 };
-
+// example with Promises
 const updateCounterAction = (counter: Counter) => (dispatch: any) => {
   dispatch(updateCounter());
 
