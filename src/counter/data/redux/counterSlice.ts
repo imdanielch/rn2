@@ -18,31 +18,31 @@ export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
-    setCounterAction: (state, action: PayloadAction<Counter>) => {
+    setCounter: (state, action: PayloadAction<Counter>) => {
       state.counter = action.payload;
     },
-    getCounterAction: (state) => {
+    getCounter: (state) => {
       state.isLoading = true;
     },
-    getCounterSuccessAction: (state, action: PayloadAction<Counter>) => {
+    getCounterSuccess: (state, action: PayloadAction<Counter>) => {
       state.isLoading = false;
       state.counter = action.payload;
     },
-    updateCounterAction: (state) => {
+    updateCounter: (state) => {
       state.isUpdating = true;
     },
-    updateCounterSuccessAction: (state) => {
+    updateCounterSuccess: (state) => {
       state.isUpdating = false;
     },
   },
 });
 
 export const {
-  setCounterAction,
-  getCounterAction,
-  getCounterSuccessAction,
-  updateCounterAction,
-  updateCounterSuccessAction,
+  setCounter,
+  getCounter,
+  getCounterSuccess,
+  updateCounter,
+  updateCounterSuccess,
 } = counterSlice.actions;
 
 export type { CounterStoreState };

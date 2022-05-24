@@ -1,52 +1,39 @@
 import type { Counter } from '../../domain/model/counterEntity';
-import { getCounter, updateCounter } from '../webAPI/counterService';
+import { getCounterAPI, updateCounterAPI } from '../webAPI/counterService';
 
 import {
-  setCounterAction,
-  getCounterAction,
-  getCounterSuccessAction,
-  updateCounterAction,
-  updateCounterSuccessAction,
+  setCounter,
+  getCounter,
+  getCounterSuccess,
+  updateCounter,
+  updateCounterSuccess,
 } from './counterSlice';
 
 // higher order functions
 // Equivalent to:
-// const setCounterActionCreator = function(counter) {
+// const setCounterAction = function(counter) {
 //  return (function (dispatch) {
 //    return dispatch(setCounterAction(counter));
 //  });
 // };
-const setCounterActionCreator = (counter: Counter) => (dispatch: any) =>
-  dispatch(setCounterAction(counter));
+const setCounterAction = (counter: Counter) => (dispatch: any) =>
+  dispatch(setCounter(counter));
 
-const getCounterActionCreator = () => async (dispatch: any) => {
-  dispatch(getCounterAction());
-  const newCounter = await getCounter();
-  dispatch(getCounterSuccessAction(newCounter));
+const getCounterAction = () => async (dispatch: any) => {
+  dispatch(getCounter());
+  const newCounter = await getCounterAPI();
+  dispatch(getCounterSuccess(newCounter));
   return newCounter;
 };
-//const getCounterActionCreator = () => (dispatch: any) => {
-//  dispatch(getCounterAction());
-//
-//  return getCounter().then((counter) => {
-//    dispatch(getCounterSuccessAction(counter));
-//
-//    return counter;
-//  });
-//};
 
-const updateCounterActionCreator = (counter: Counter) => (dispatch: any) => {
-  dispatch(updateCounterAction());
+const updateCounterAction = (counter: Counter) => (dispatch: any) => {
+  dispatch(updateCounter());
 
-  return updateCounter(counter).then((count) => {
-    dispatch(updateCounterSuccessAction());
+  return updateCounterAPI(counter).then((count) => {
+    dispatch(updateCounterSuccess());
 
     return count;
   });
 };
 
-export {
-  setCounterActionCreator,
-  getCounterActionCreator,
-  updateCounterActionCreator,
-};
+export { setCounterAction, getCounterAction, updateCounterAction };

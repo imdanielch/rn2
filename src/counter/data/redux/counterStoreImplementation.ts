@@ -7,9 +7,9 @@ import type { Counter } from '../../domain/model/counterEntity';
 
 import type { CounterStoreState } from './counterSlice';
 import {
-  getCounterActionCreator,
-  setCounterActionCreator,
-  updateCounterActionCreator,
+  getCounterAction,
+  setCounterAction,
+  updateCounterAction,
 } from './counterActions';
 
 const counterSelector = (state: AppRootState) => state.counter;
@@ -22,17 +22,17 @@ const useCounterStoreImplementation = (): CounterStore => {
   const dispatch = useDispatch();
 
   const setCounter = useCallback(
-    (count: Counter) => setCounterActionCreator(count)(dispatch),
+    (count: Counter) => setCounterAction(count)(dispatch),
     [dispatch],
   );
 
   const loadInitialCounter = useCallback(
-    () => getCounterActionCreator()(dispatch),
+    () => getCounterAction()(dispatch),
     [dispatch],
   );
 
   const updateCounter = useCallback(
-    (count: Counter) => updateCounterActionCreator(count)(dispatch),
+    (count: Counter) => updateCounterAction(count)(dispatch),
     [dispatch],
   );
 

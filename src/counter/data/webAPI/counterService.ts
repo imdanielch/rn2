@@ -3,7 +3,7 @@ import { create } from '../../domain/model/counterModel';
 
 let count = 0;
 
-function getCounter(): Promise<Counter> {
+function getCounterAPI(): Promise<Counter> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(create(count));
@@ -11,7 +11,7 @@ function getCounter(): Promise<Counter> {
   });
 }
 
-function updateCounter(counter: Counter): Promise<Counter> {
+function updateCounterAPI(counter: Counter): Promise<Counter> {
   return new Promise((resolve) => {
     setTimeout(() => {
       count = counter.value;
@@ -20,4 +20,4 @@ function updateCounter(counter: Counter): Promise<Counter> {
   });
 }
 
-export { getCounter, updateCounter };
+export { getCounterAPI, updateCounterAPI };
