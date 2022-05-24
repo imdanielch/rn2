@@ -1,5 +1,5 @@
-import type { Counter } from '../../../domain/model/counterEntity';
-import { create } from '../../../domain/model/counterModel';
+import type { Counter } from '../../domain/model/counterEntity';
+import { create } from '../../domain/model/counterModel';
 
 let count = 0;
 

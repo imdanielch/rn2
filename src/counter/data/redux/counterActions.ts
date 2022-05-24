@@ -1,5 +1,5 @@
 import type { Counter } from '../../domain/model/counterEntity';
-import { getCounter, updateCounter } from './webAPI/counterService';
+import { getCounter, updateCounter } from '../webAPI/counterService';
 
 import {
   setCounterAction,
