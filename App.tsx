@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import AppView from './src/app/main/presentation/view/AppView';
+import AppView from './src/main/presentation/view/AppView';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const App = () => {
